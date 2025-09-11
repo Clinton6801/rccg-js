@@ -1,102 +1,152 @@
-import Image from "next/image";
+import React from 'react';
 
-export default function Home() {
+// This file contains the main landing page of your website.
+// The other pages (Resources, Contact) will be in separate files.
+
+const Home = () => {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      {/* Hero Section */}
+     <section className="relative flex min-h-[60vh] flex-col items-center justify-center bg-blue-900 bg-cover bg-center py-24 text-white md:min-h-[75vh]"
+    style={{ backgroundImage: `url('https://images.unsplash.com/photo-1542459020461-8488e146a89c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')` }}>
+    <div className="absolute inset-0 bg-black opacity-60"></div>
+    <div className="z-10 text-center">
+     <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
+      Welcome to RCCG Area 1, Redemption Parish
+     </h1>
+     <p className="mt-4 max-w-lg text-lg sm:text-xl mx-auto">
+      A place of worship, fellowship, and divine encounter. Join us as we grow in faith.
+     </p>
+     <button className="mt-8 rounded-full bg-red-600 px-8 py-3 font-semibold transition hover:bg-red-700">
+      Join Our Service
+     </button>
+    </div>
+   </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* About Us Section */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-6">
+          <h2 className="text-center text-3xl font-bold text-gray-800">Our Mission</h2>
+          <p className="mx-auto mt-4 max-w-3xl text-center text-gray-600">
+            We are a family of believers committed to spreading the gospel of Jesus Christ. Our mission is to raise disciples who will impact their communities and nations for God. We are a part of the global RCCG family, led by our General Overseer, Pastor E.A. Adeboye.
+          </p>
         </div>
+      </section>
+
+      {/* Ministries Section */}
+      <section className="bg-gray-50 py-16">
+        <div className="container mx-auto px-6">
+          <h2 className="text-center text-3xl font-bold text-gray-800">Our Ministries</h2>
+          <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div className="rounded-lg bg-white p-6 text-center shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="mx-auto h-12 w-12 text-red-600" viewBox="0 0 20 20">
+                <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1 1 0 011.006-.554l.06-.013c.691-.157 1.458-.236 2.213-.236h.536a.5.5 0 01.5.5v1.5a.5.5 0 01-.5.5h-.536c-.755 0-1.522-.079-2.213-.236l-.06-.013a1 1 0 01-.554-1.006zM10 16a6 6 0 100-12 6 6 0 000 12z" />
+              </svg>
+              <h3 className="mt-4 text-xl font-semibold">Evangelism</h3>
+              <p className="mt-2 text-gray-600">
+                Spreading the Word of God through local and global outreach.
+              </p>
+            </div>
+            <div className="rounded-lg bg-white p-6 text-center shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="mx-auto h-12 w-12 text-blue-600" viewBox="0 0 20 20">
+                <path d="M5 2h10a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V4a2 2 0 012-2zm0 2v12h10V4H5zM10 5a1 1 0 011 1v4a1 1 0 01-2 0V6a1 1 0 011-1z" />
+              </svg>
+              <h3 className="mt-4 text-xl font-semibold">Youth & Teens</h3>
+              <p className="mt-2 text-gray-600">
+                Building a generation of young leaders and passionate followers of Christ.
+              </p>
+            </div>
+            <div className="rounded-lg bg-white p-6 text-center shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="mx-auto h-12 w-12 text-green-600" viewBox="0 0 20 20">
+                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                <path d="M.5 10a9.5 9.5 0 1019 0 9.5 9.5 0 00-19 0zM10 1a9 9 0 110 18 9 9 0 010-18z" />
+              </svg>
+              <h3 className="mt-4 text-xl font-semibold">Children's Ministry</h3>
+              <p className="mt-2 text-gray-600">
+                Nurturing the spiritual growth of our children in a fun and safe environment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Times & Location */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-6">
+          <h2 className="text-center text-3xl font-bold text-gray-800">Service Times & Location</h2>
+          <div className="mt-8 flex flex-col items-center justify-center gap-8 md:flex-row">
+            <div className="w-full rounded-lg bg-gray-50 p-6 shadow-md md:w-1/2">
+              <h3 className="text-xl font-semibold text-gray-800">Weekly Services</h3>
+              <ul className="mt-4 space-y-2 text-gray-600">
+                <li>Sunday Service: 9:00 AM - 12:00 PM</li>
+                <li>Mid-Week Service: Wednesday, 6:00 PM - 7:30 PM</li>
+                <li>Digging Deep: Tuesday, 6:00 PM - 7:30 PM</li>
+              </ul>
+            </div>
+            <div className="w-full rounded-lg bg-gray-50 p-6 shadow-md md:w-1/2">
+              <h3 className="text-xl font-semibold text-gray-800">Our Location</h3>
+              <p className="mt-4 text-gray-600">
+                123 Church Avenue, Redemption Estate,
+                <br />
+                Abeokuta, Ogun State.
+              </p>
+              <div className="mt-4 h-48 w-full rounded-lg bg-gray-300">
+                {/* Placeholder for map */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default function App() {
+  return (
+    <div className="bg-white font-sans text-gray-800">
+      {/* Tailwind CSS CDN */}
+      <script src="https://cdn.tailwindcss.com"></script>
+
+      {/* Header/Navigation */}
+      <header className="sticky top-0 z-50 bg-white p-4 shadow-md">
+        <div className="container mx-auto flex items-center justify-between">
+          <div className="text-2xl font-bold text-blue-900">
+            RCCG Area 1
+          </div>
+          <nav>
+            <ul className="flex space-x-4">
+              <li>
+                <a href="/" className="rounded-full px-4 py-2 transition hover:bg-gray-200 bg-gray-200">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="/resources" className="rounded-full px-4 py-2 transition hover:bg-gray-200">
+                  Resources
+                </a>
+              </li>
+              <li>
+                <a href="/contact-us" className="rounded-full px-4 py-2 transition hover:bg-gray-200">
+                  Contact Us
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main>
+        <Home />
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="bg-blue-900 py-8 text-white">
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-sm">
+            &copy; {new Date().getFullYear()} RCCG Area 1. All rights reserved.
+          </p>
+        </div>
       </footer>
     </div>
   );
