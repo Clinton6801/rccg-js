@@ -1,24 +1,75 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [prayerTheme, setPrayerTheme] = useState('');
+  const [generatedPrayer, setGeneratedPrayer] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [currentPath, setCurrentPath] = useState('');
+
+  useEffect(() => {
+    // Set the current path only on the client side to avoid hydration errors
+    if (typeof window !== 'undefined') {
+      setCurrentPath(window.location.pathname);
+    }
+  }, []);
 
   // Function to toggle the menu's state
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Get the current URL path to highlight the active link
-  // The 'typeof window' check is important for Next.js to prevent errors during server-side rendering
-  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
+  const handleGeneratePrayer = async () => {
+    if (!prayerTheme.trim()) return;
+
+    setIsLoading(true);
+    setGeneratedPrayer('');
+
+    try {
+      const apiKey = "";
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+      
+      const systemPrompt = "You are a spiritual guide. Write a short, uplifting, and comforting Christian prayer based on the user's theme. Do not add any introductory or concluding phrases, just the prayer itself.";
+      const userQuery = `Write a prayer for the following theme: ${prayerTheme}.`;
+
+      const payload = {
+        contents: [{ parts: [{ text: userQuery }] }],
+        systemInstruction: {
+          parts: [{ text: systemPrompt }]
+        },
+      };
+
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status} ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+      if (text) {
+        setGeneratedPrayer(text);
+      } else {
+        setGeneratedPrayer("Sorry, I couldn't generate a prayer at this time. Please try again.");
+      }
+
+    } catch (error) {
+      console.error('Error generating prayer:', error);
+      setGeneratedPrayer("An error occurred while generating the prayer. Please check the console for details.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="bg-white font-sans text-gray-800">
-      {/* Tailwind CSS CDN is not the standard way in Next.js,
-          but it works for this example. Normally, you would use
-          a CSS file or a dedicated Tailwind setup. */}
       <script src="https://cdn.tailwindcss.com"></script>
 
       {/* Header/Navigation */}
@@ -60,9 +111,9 @@ export default function App() {
         </div>
       </header>
 
-      {/* Mobile Menu Dropdown */}
-      <nav className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden bg-white shadow-md absolute w-full`}>
-        <ul className="flex flex-col items-center py-4 space-y-4">
+      {/* Mobile Menu Dropdown with slide-in transition */}
+      <nav className={`md:hidden absolute w-full bg-white shadow-md transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
+        <ul className={`flex flex-col items-center transition-all duration-300 ${isMenuOpen ? 'py-4 space-y-4' : 'py-0 space-y-0'}`}>
           <li>
             <a onClick={toggleMenu} href="/" className="block px-4 py-2 text-lg rounded-full hover:bg-gray-200 w-full text-center">Home</a>
           </li>
@@ -137,6 +188,52 @@ export default function App() {
                   Nurturing the spiritual growth of our children in a fun and safe environment.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Divine Inspiration Section powered by Gemini API */}
+        <section className="bg-gray-100 py-16">
+          <div className="container mx-auto px-6">
+            <div className="mx-auto max-w-2xl rounded-lg bg-white p-8 shadow-xl">
+              <h2 className="text-center text-3xl font-bold text-gray-800">
+                Divine Inspiration ✨
+              </h2>
+              <p className="mx-auto mt-4 text-center text-gray-600">
+                Receive a personalized prayer. Tell us what's on your heart, and we will generate a prayer for you.
+              </p>
+              <div className="mt-8 flex flex-col items-center">
+                <textarea
+                  className="w-full rounded-md border-2 border-gray-300 p-4 text-gray-800 focus:border-blue-500 focus:outline-none"
+                  rows="4"
+                  placeholder="e.g., 'strength during a difficult time' or 'thanksgiving for blessings'"
+                  value={prayerTheme}
+                  onChange={(e) => setPrayerTheme(e.target.value)}
+                ></textarea>
+                <button
+                  onClick={handleGeneratePrayer}
+                  disabled={isLoading}
+                  className={`mt-4 w-full rounded-full px-8 py-3 font-semibold transition ${isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'} text-white`}
+                >
+                  {isLoading ? (
+                    <div className="flex items-center justify-center">
+                      <svg className="h-5 w-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      <span className="ml-2">Generating...</span>
+                    </div>
+                  ) : (
+                    "Generate Prayer"
+                  )}
+                </button>
+              </div>
+              {generatedPrayer && (
+                <div className="mt-8 rounded-lg bg-gray-50 p-6 shadow-md">
+                  <h3 className="text-center text-xl font-semibold text-gray-800">Your Prayer</h3>
+                  <p className="mt-4 text-gray-600 text-center">{generatedPrayer}</p>
+                </div>
+              )}
             </div>
           </div>
         </section>
