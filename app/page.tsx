@@ -172,7 +172,7 @@ export default function App() {
       <div className="relative flex flex-col items-center justify-center rounded-lg p-6 text-center shadow-lg overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center" 
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1542382903-1250326e0e5a?q=80&w=2940&auto=format&fit=crop')` }}
+          style={{ backgroundImage: `url('/evange.png')` }}
         ></div>
         <div className="absolute inset-0 bg-blue-900 opacity-80"></div>
         <div className="relative z-10 text-white">
@@ -189,7 +189,7 @@ export default function App() {
       <div className="relative flex flex-col items-center justify-center rounded-lg p-6 text-center shadow-lg overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center" 
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1579227568102-3c224213d22b?q=80&w=2670&auto=format&fit=crop')` }}
+          style={{ backgroundImage: `url('/yaya.jpg')` }}
         ></div>
         <div className="absolute inset-0 bg-blue-900 opacity-80"></div>
         <div className="relative z-10 text-white">
@@ -206,7 +206,7 @@ export default function App() {
       <div className="relative flex flex-col items-center justify-center rounded-lg p-6 text-center shadow-lg overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center" 
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1549419163-146312521c7e?q=80&w=2940&auto=format&fit=crop')` }}
+          style={{ backgroundImage: `url('/child.jpg')` }}
         ></div>
         <div className="absolute inset-0 bg-blue-900 opacity-80"></div>
         <div className="relative z-10 text-white">
@@ -275,7 +275,8 @@ export default function App() {
           <div className="container mx-auto px-6">
             <h2 className="text-center text-3xl font-bold text-gray-800">Service Times & Location</h2>
             <div className="mt-8 flex flex-col items-center justify-center gap-8 md:flex-row md:items-start">
-              <div className="w-full rounded-lg bg-gray-50 p-6 shadow-md md:w-1/2">
+              <div className="w-full rounded-lg bg-gray-50 p-6 shadow-md md:w-1/2"
+               style={{ backgroundImage: `url('/bible-study.png')` }}>
                 <h3 className="text-xl font-semibold text-gray-800">Weekly Services</h3>
                 <ul className="mt-4 space-y-2 text-gray-600">
                   <li>Sunday Service: 9:00 AM - 12:00 PM</li>
