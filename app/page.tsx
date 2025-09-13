@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 
 // This file now contains the entire homepage, including the main content.
