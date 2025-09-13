@@ -69,7 +69,7 @@ export default function App() {
   };
 
   return (
-    <div className="bg-white font-sans text-gray-800">
+    <div className={`bg-white font-sans text-gray-800 ${isMenuOpen ? 'overflow-hidden' : ''}`}>
       <script src="https://cdn.tailwindcss.com"></script>
 
       {/* Header/Navigation */}
@@ -110,10 +110,18 @@ export default function App() {
           </div>
         </div>
       </header>
-      
+
+      {/* Blurred overlay */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 z-30 bg-black/50 backdrop-blur-sm transition-all duration-300"
+          onClick={toggleMenu}
+        ></div>
+      )}
+
       {/* Mobile Menu Dropdown with slide-in transition */}
-      <nav className={`md:hidden absolute w-full bg-white shadow-md transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
-        <ul className={`flex flex-col items-center transition-all duration-300 ${isMenuOpen ? 'py-4 space-y-4' : 'py-0 space-y-0'}`}>
+      <nav className={`md:hidden fixed top-[60px] left-0 right-0 z-40 bg-white shadow-md transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
+        <ul className="flex flex-col items-center py-4 space-y-4">
           <li>
             <a onClick={toggleMenu} href="/" className="block px-4 py-2 text-lg rounded-full hover:bg-gray-200 w-full text-center">Home</a>
           </li>
