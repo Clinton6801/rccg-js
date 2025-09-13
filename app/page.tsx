@@ -138,7 +138,7 @@ export default function App() {
       <main>
         {/* Hero Section */}
         <section className="relative flex min-h-[60vh] flex-col items-center justify-center bg-blue-900 bg-cover bg-center py-24 text-white md:min-h-[75vh]"
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1542459020461-8488e146a89c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')` }}>
+          style={{ backgroundImage: `url('/Rccg_logo.png')` }}>
           <div className="absolute inset-0 bg-black opacity-60"></div>
           <div className="z-10 text-center">
             <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
@@ -164,41 +164,65 @@ export default function App() {
         </section>
 
         {/* Ministries Section */}
-        <section className="bg-gray-50 py-16">
-          <div className="container mx-auto px-6">
-            <h2 className="text-center text-3xl font-bold text-gray-800">Our Ministries</h2>
-            <div className="mt-10 grid grid-cols-1 gap-12 md:grid-cols-3">
-              <div className="rounded-lg bg-white p-6 text-center shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="mx-auto h-12 w-12 text-red-600" viewBox="0 0 20 20">
-                  <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1 1 0 011.006-.554l.06-.013c.691-.157 1.458-.236 2.213-.236h.536a.5.5 0 01.5.5v1.5a.5.5 0 01-.5.5h-.536c-.755 0-1.522-.079-2.213-.236l-.06-.013a1 1 0 01-.554-1.006zM10 16a6 6 0 100-12 6 6 0 000 12z" />
-                </svg>
-                <h3 className="mt-4 text-xl font-semibold">Evangelism</h3>
-                <p className="mt-2 text-gray-600">
-                  Spreading the Word of God through local and global outreach.
-                </p>
-              </div>
-              <div className="rounded-lg bg-white p-6 text-center shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="mx-auto h-12 w-12 text-blue-600" viewBox="0 0 20 20">
-                  <path d="M5 2h10a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V4a2 2 0 012-2zm0 2v12h10V4H5zM10 5a1 1 0 011 1v4a1 1 0 01-2 0V6a1 1 0 011-1z" />
-                </svg>
-                <h3 className="mt-4 text-xl font-semibold">Youth & Teens</h3>
-                <p className="mt-2 text-gray-600">
-                  Building a generation of young leaders and passionate followers of Christ.
-                </p>
-              </div>
-              <div className="rounded-lg bg-white p-6 text-center shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="mx-auto h-12 w-12 text-green-600" viewBox="0 0 20 20">
-                  <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                  <path d="M.5 10a9.5 9.5 0 1019 0 9.5 9.5 0 00-19 0zM10 1a9 9 0 110 18 9 9 0 010-18z" />
-                </svg>
-                <h3 className="mt-4 text-xl font-semibold">Children's Ministry</h3>
-                <p className="mt-2 text-gray-600">
-                  Nurturing the spiritual growth of our children in a fun and safe environment.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+<section className="bg-gray-50 py-16">
+  <div className="container mx-auto px-6">
+    <h2 className="text-center text-3xl font-bold text-gray-800">Our Ministries</h2>
+    <div className="mt-10 grid grid-cols-1 gap-12 md:grid-cols-3">
+      {/* Evangelism Card */}
+      <div className="relative flex flex-col items-center justify-center rounded-lg p-6 text-center shadow-lg overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center" 
+          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1542382903-1250326e0e5a?q=80&w=2940&auto=format&fit=crop')` }}
+        ></div>
+        <div className="absolute inset-0 bg-blue-900 opacity-80"></div>
+        <div className="relative z-10 text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="mx-auto h-12 w-12 text-white" viewBox="0 0 20 20">
+            <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1 1 0 011.006-.554l.06-.013c.691-.157 1.458-.236 2.213-.236h.536a.5.5 0 01.5.5v1.5a.5.5 0 01-.5.5h-.536c-.755 0-1.522-.079-2.213-.236l-.06-.013a1 1 0 01-.554-1.006zM10 16a6 6 0 100-12 6 6 0 000 12z" />
+          </svg>
+          <h3 className="mt-4 text-xl font-semibold">Evangelism</h3>
+          <p className="mt-2 text-white/90">
+            Spreading the Word of God through local and global outreach.
+          </p>
+        </div>
+      </div>
+      {/* Youth & Teens Card */}
+      <div className="relative flex flex-col items-center justify-center rounded-lg p-6 text-center shadow-lg overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center" 
+          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1579227568102-3c224213d22b?q=80&w=2670&auto=format&fit=crop')` }}
+        ></div>
+        <div className="absolute inset-0 bg-blue-900 opacity-80"></div>
+        <div className="relative z-10 text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="mx-auto h-12 w-12 text-white" viewBox="0 0 20 20">
+            <path d="M5 2h10a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V4a2 2 0 012-2zm0 2v12h10V4H5zM10 5a1 1 0 011 1v4a1 1 0 01-2 0V6a1 1 0 011-1z" />
+          </svg>
+          <h3 className="mt-4 text-xl font-semibold">Youth & Teens</h3>
+          <p className="mt-2 text-white/90">
+            Building a generation of young leaders and passionate followers of Christ.
+          </p>
+        </div>
+      </div>
+      {/* Children's Ministry Card */}
+      <div className="relative flex flex-col items-center justify-center rounded-lg p-6 text-center shadow-lg overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center" 
+          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1549419163-146312521c7e?q=80&w=2940&auto=format&fit=crop')` }}
+        ></div>
+        <div className="absolute inset-0 bg-blue-900 opacity-80"></div>
+        <div className="relative z-10 text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="mx-auto h-12 w-12 text-white" viewBox="0 0 20 20">
+            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+            <path d="M.5 10a9.5 9.5 0 1019 0 9.5 9.5 0 00-19 0zM10 1a9 9 0 110 18 9 9 0 010-18z" />
+          </svg>
+          <h3 className="mt-4 text-xl font-semibold">Children's Ministry</h3>
+          <p className="mt-2 text-white/90">
+            Nurturing the spiritual growth of our children in a fun and safe environment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
         {/* Divine Inspiration Section powered by Gemini API */}
         <section className="bg-gray-100 py-16">
