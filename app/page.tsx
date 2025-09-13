@@ -297,10 +297,16 @@ export default function App() {
           <br />
           Abeokuta, Ogun State.
         </p>
-        <div className="mt-4 h-48 w-full rounded-lg bg-gray-300">
-          {/* Placeholder for map */}
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.177396777844!2d3.8179579101920855!3d7.4456162925344564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1039f571d21d81e3%3A0xce021e410f0fdd7b!2sBanquad%20Events%20Place!5e0!3m2!1sen!2sng!4v1757785805974!5m2!1sen!2sng" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+       <div className="mt-4 h-48 w-full rounded-lg bg-gray-300 overflow-hidden">
+     <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.177396777844!2d3.8179579101920855!3d7.4456162925344564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1039f571d21d81e3%3A0xce021e410f0fdd7b!2sBanquad%20Events%20Place!5e0!3m2!1sen!2sng!4v1757785805974!5m2!1sen!2sng"
+    className="w-full h-full"
+    style={{ border: 0 }}
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  ></iframe>
+</div>
       </div>
     </div>
   </div>
