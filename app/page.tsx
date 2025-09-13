@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 
 export default function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [prayerTheme, setPrayerTheme] = useState('');
   const [generatedPrayer, setGeneratedPrayer] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -15,11 +14,6 @@ export default function App() {
       setCurrentPath(window.location.pathname);
     }
   }, []);
-
-  // Function to toggle the menu's state
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   const handleGeneratePrayer = async () => {
     if (!prayerTheme.trim()) return;
@@ -79,8 +73,8 @@ export default function App() {
             RCCG Area 1
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:block">
+          {/* Unified Navigation */}
+          <nav>
             <ul className="flex space-x-4">
               <li>
                 <a href="/" className={`rounded-full px-4 py-2 transition hover:bg-gray-200 ${currentPath === '/' ? 'bg-gray-200' : ''}`}>
@@ -99,32 +93,8 @@ export default function App() {
               </li>
             </ul>
           </nav>
-
-          {/* Mobile Menu Button (Hamburger) */}
-          <div className="md:hidden">
-            <button onClick={toggleMenu} className="focus:outline-none">
-              <svg className="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
         </div>
       </header>
-
-      {/* Mobile Menu Dropdown with slide-in transition */}
-      <nav className={`md:hidden absolute w-full bg-white shadow-md transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
-        <ul className={`flex flex-col items-center transition-all duration-300 ${isMenuOpen ? 'py-4 space-y-4' : 'py-0 space-y-0'}`}>
-          <li>
-            <a onClick={toggleMenu} href="/" className="block px-4 py-2 text-lg rounded-full hover:bg-gray-200 w-full text-center">Home</a>
-          </li>
-          <li>
-            <a onClick={toggleMenu} href="/resources" className="block px-4 py-2 text-lg rounded-full hover:bg-gray-200 w-full text-center">Resources</a>
-          </li>
-          <li>
-            <a onClick={toggleMenu} href="/contact-us" className="block px-4 py-2 text-lg rounded-full hover:bg-gray-200 w-full text-center">Contact Us</a>
-          </li>
-        </ul>
-      </nav>
 
       {/* Main Content Sections (formerly in the Home component) */}
       <main>
