@@ -2,8 +2,6 @@
 
 import React, { useState } from 'react';
 
-// This file now contains the entire homepage, including the main content.
-
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -13,11 +11,14 @@ export default function App() {
   };
 
   // Get the current URL path to highlight the active link
-  const currentPath = window.location.pathname;
+  // The 'typeof window' check is important for Next.js to prevent errors during server-side rendering
+  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
 
   return (
     <div className="bg-white font-sans text-gray-800">
-      {/* Tailwind CSS CDN */}
+      {/* Tailwind CSS CDN is not the standard way in Next.js,
+          but it works for this example. Normally, you would use
+          a CSS file or a dedicated Tailwind setup. */}
       <script src="https://cdn.tailwindcss.com"></script>
 
       {/* Header/Navigation */}
