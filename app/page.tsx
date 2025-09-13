@@ -213,7 +213,7 @@ export default function App() {
               <div className="mt-8 flex flex-col items-center">
                 <textarea
                   className="w-full rounded-md border-2 border-gray-300 p-4 text-gray-800 focus:border-blue-500 focus:outline-none"
-                  rows="4"
+                  rows={4}
                   placeholder="e.g., 'strength during a difficult time' or 'thanksgiving for blessings'"
                   value={prayerTheme}
                   onChange={(e) => setPrayerTheme(e.target.value)}
