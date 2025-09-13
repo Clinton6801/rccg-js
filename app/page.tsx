@@ -270,34 +270,41 @@ export default function App() {
           </div>
         </section>
 
-        {/* Service Times & Location */}
-        <section className="bg-white py-16">
-          <div className="container mx-auto px-6">
-            <h2 className="text-center text-3xl font-bold text-gray-800">Service Times & Location</h2>
-            <div className="mt-8 flex flex-col items-center justify-center gap-8 md:flex-row md:items-start">
-              <div className="w-full rounded-lg bg-gray-50 p-6 shadow-md md:w-1/2"
-               style={{ backgroundImage: `url('/bible-study.png')` }}>
-                <h3 className="text-xl font-semibold text-gray-800">Weekly Services</h3>
-                <ul className="mt-4 space-y-2 text-gray-600">
-                  <li>Sunday Service: 9:00 AM - 12:00 PM</li>
-                  <li>Mid-Week Service: Wednesday, 6:00 PM - 7:30 PM</li>
-                  <li>Digging Deep: Tuesday, 6:00 PM - 7:30 PM</li>
-                </ul>
-              </div>
-              <div className="w-full rounded-lg bg-gray-50 p-6 shadow-md md:w-1/2">
-                <h3 className="text-xl font-semibold text-gray-800">Our Location</h3>
-                <p className="mt-4 text-gray-600">
-                  123 Church Avenue, Redemption Estate,
-                  <br />
-                  Abeokuta, Ogun State.
-                </p>
-                <div className="mt-4 h-48 w-full rounded-lg bg-gray-300">
-                  {/* Placeholder for map */}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+      {/* Service Times & Location */}
+<section className="bg-white py-16">
+  <div className="container mx-auto px-6">
+    <h2 className="text-center text-3xl font-bold text-gray-800">Service Times & Location</h2>
+    <div className="mt-8 flex flex-col items-center justify-center gap-8 md:flex-row md:items-start">
+      <div 
+        className="relative w-full rounded-lg shadow-md md:w-1/2 min-h-[300px] flex flex-col justify-center p-6 overflow-hidden" 
+        style={{ backgroundImage: `url('/bible-study.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      >
+        {/* Semi-transparent overlay for text readability */}
+        <div className="absolute inset-0 bg-blue-900 opacity-80"></div>
+        <div className="relative z-10 text-white">
+          <h3 className="text-xl font-semibold">Weekly Services</h3>
+          <ul className="mt-4 space-y-2 text-white/90">
+            <li>Sunday Service: 9:00 AM - 12:00 PM</li>
+            <li>Mid-Week Service: Wednesday, 6:00 PM - 7:30 PM</li>
+            <li>Digging Deep: Tuesday, 6:00 PM - 7:30 PM</li>
+          </ul>
+        </div>
+      </div>
+      <div className="w-full rounded-lg bg-gray-50 p-6 shadow-md md:w-1/2">
+        <h3 className="text-xl font-semibold text-gray-800">Our Location</h3>
+        <p className="mt-4 text-gray-600">
+          123 Church Avenue, Redemption Estate,
+          <br />
+          Abeokuta, Ogun State.
+        </p>
+        <div className="mt-4 h-48 w-full rounded-lg bg-gray-300">
+          {/* Placeholder for map */}
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.177396777844!2d3.8179579101920855!3d7.4456162925344564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1039f571d21d81e3%3A0xce021e410f0fdd7b!2sBanquad%20Events%20Place!5e0!3m2!1sen!2sng!4v1757785805974!5m2!1sen!2sng" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       </main>
 
       {/* Footer */}
